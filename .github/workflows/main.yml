@@ -1,0 +1,23 @@
+name: Build Docker Images
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Build and push frontend-react image
+      run: docker build -t mon_repo/front-end-react:latest ./CICD-PROJECT/front-end-react && docker push mon_repo/front-end-react:latest
+
+    - name: Build and push order-service image
+      run: docker build -t mon_repo/order-service:latest ./CICD-PROJECT/order-service && docker push mon_repo/order-service:latest
+
+    - name: Build and push user-service image
+      run: docker build -t mon_repo/user-service:latest ./CICD-PROJECT/user-service && docker push mon_repo/user-service:latest
