@@ -14,10 +14,10 @@ jobs:
               uses: actions/checkout@v2
 
             - name: Build and push frontend image
-              run: docker build -t projectcicd/frontend:latest ../front-end-react && docker push projectcicd/frontend:latest
+              run: docker build -t projectcicd/frontend:latest ../../front-end-react && docker push y0tus/projectcicd/frontend:latest
 
             - name: Build and push order-service image
-              run: docker build -t projectcicd/order-service:latest ../order-service && docker push projectcicd/order-service:latest
+              run: docker build -t y0tus/projectcicd/order-service:latest ../../order-service && docker push y0tus/projectcicd/order-service:latest
 
             - name: Build and push user-service image
-              run: docker build -t projectcicd/user-service:latest ../user-service && docker push projectcicd/user-service:latest
+              run: docker build -t y0tus/projectcicd/user-service:latest ../../user-service && docker push y0tus/projectcicd/user-service:latest
