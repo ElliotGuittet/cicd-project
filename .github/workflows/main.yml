@@ -1,23 +1,23 @@
 name: Build Docker Images
 
 on:
-  push:
-    branches:
-      - main
+    push:
+        branches:
+            - main
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
+    build:
+        runs-on: ubuntu-latest
 
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v2
 
-    - name: Build and push frontend-react image
-      run: docker build -t mon_repo/front-end-react:latest ./CICD-PROJECT/front-end-react && docker push mon_repo/front-end-react:latest
+            - name: Build and push frontend image
+              run: docker build -t projectcicd/frontend:latest ./cicd-project/front-end-react && docker push projectcicd/frontend:latest
 
-    - name: Build and push order-service image
-      run: docker build -t mon_repo/order-service:latest ./CICD-PROJECT/order-service && docker push mon_repo/order-service:latest
+            - name: Build and push order-service image
+              run: docker build -t projectcicd/order-service:latest ./cicd-project/order-service && docker push projectcicd/order-service:latest
 
-    - name: Build and push user-service image
-      run: docker build -t mon_repo/user-service:latest ./CICD-PROJECT/user-service && docker push mon_repo/user-service:latest
+            - name: Build and push user-service image
+              run: docker build -t projectcicd/user-service:latest ./cicd-project/user-service && docker push projectcicd/user-service:latest
