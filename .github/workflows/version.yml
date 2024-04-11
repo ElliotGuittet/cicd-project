@@ -29,5 +29,15 @@ jobs:
 
             - name: Build and Push Docker Image
               run: |
+                  docker build -t projectcicd/frontend:${{ github.ref }} .
+                  docker push projectcicd/frontend:${{ github.ref }}
+
+            - name: Build and Push Docker Image
+              run: |
+                  docker build -t projectcicd/order-service:${{ github.ref }} .
+                  docker push projectcicd/order-service:${{ github.ref }}
+
+            - name: Build and Push Docker Image
+              run: |
                   docker build -t projectcicd/user-service:${{ github.ref }} .
                   docker push projectcicd/user-service:${{ github.ref }}

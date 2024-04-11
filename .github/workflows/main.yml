@@ -12,12 +12,3 @@ jobs:
         steps:
             - name: Checkout code
               uses: actions/checkout@v2
-
-            - name: Build and push frontend image
-              run: docker build -t frontend:latest ../../front-end-react && docker push projectcicd/frontend:latest
-
-            - name: Build and push order-service image
-              run: docker build -t order-service:latest ../../order-service && docker push y0tus/projectcicd/order-service:latest
-
-            - name: Build and push user-service image
-              run: docker build -t user-service:latest ../../user-service && docker push y0tus/projectcicd/user-service:latest
